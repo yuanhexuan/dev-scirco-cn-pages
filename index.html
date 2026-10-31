@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev.scirco.cn - GitHub Pages</title>
+    <meta name="description" content="dev.scirco.cn 资源分发站的 GitHub Pages 镜像展示页。工具下载请前往主站 dev.scirco.cn。">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="assets/js/theme.js"></script>
+    <style>
+        body {
+            font-family: "Inter Tight", "PingFang SC", "Microsoft YaHei", sans-serif;
+            padding-top: 64px;
+        }
+        .pages-note {
+            max-width: 1080px;
+            margin: var(--space-4) auto 0;
+            padding: 10px 18px;
+            border-radius: var(--radius-md);
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--warning);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .pages-note a { color: var(--warning); font-weight: 600; }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: var(--space-8) var(--space-4) var(--space-7);
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--primary-500);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--space-5);
+        }
+        .hero h1 {
+            font-family: "Fraunces", "Songti SC", serif;
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-4);
+        }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.08rem;
+            line-height: 1.8;
+            max-width: 620px;
+            margin: 0 auto var(--space-6);
+        }
+        .hero-cta { display: inline-flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+        .hero-cta .btn { height: 46px; padding: 0 28px; font-size: 0.95rem; }
+
+        main { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+        section { margin-bottom: var(--space-8); }
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-3);
+            margin-bottom: var(--space-5);
+        }
+        .section-head h2 {
+            font-family: "Fraunces", "Songti SC", serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+        .section-head .count { font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--text-muted); }
+
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+        .file-card { display: flex; flex-direction: column; }
+        .file-card .card-header { margin-bottom: var(--space-3); }
+        .file-card .card-icon { font-size: 1.4rem; }
+        .file-card .fname {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            word-break: break-all;
+            margin-top: 2px;
+        }
+        .file-card .desc { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65; margin-bottom: var(--space-4); flex: 1; }
+        .file-card .btn { width: 100%; }
+        .icon-gold { background: var(--gradient-gold) !important; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important; }
+
+        footer {
+            border-top: 1px solid var(--border-primary);
+            padding: var(--space-5) var(--space-4);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+        footer .mono { font-family: "JetBrains Mono", monospace; }
+
+        @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .navbar-nav .nav-link { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient-mesh">
+        <div class="bg-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a class="navbar-brand" href="/dev-scirco-cn-pages/">scirco.dev</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="#tools">工具</a>
+                <a class="nav-link" href="#pages">伪装页</a>
+                <a class="nav-link" href="#links">链接</a>
+                <a class="btn btn-primary btn-sm" href="https://dev.scirco.cn" target="_blank" rel="noopener">前往主站</a>
+                <button id="theme-toggle" class="btn btn-ghost btn-sm" type="button">🌙 深色</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pages-note">
+        📄 这是 <b>GitHub Pages</b> 镜像展示页 · 工具文件请前往主站 <a href="https://dev.scirco.cn" target="_blank" rel="noopener">dev.scirco.cn</a> 下载
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-badge">★ GitHub Pages · 开源镜像</div>
+            <h1>Dev.scirco.cn<br><span class="text-gradient">资源分发站</span></h1>
+            <p>信息课实用工具与资源合集：极域反控、信息课助手、veyonkill 等。本站为 GitHub Pages 静态镜像，仅作展示，全部文件下载请在主站进行。</p>
+            <div class="hero-cta">
+                <a class="btn btn-primary" href="https://dev.scirco.cn" target="_blank" rel="noopener">前往主站下载 →</a>
+                <a class="btn btn-secondary" href="https://github.com/yuanhexuan/dev-scirco-cn-pages" target="_blank" rel="noopener">查看源码</a>
+            </div>
+        </section>
+
+        <section id="tools">
+            <div class="section-head"><h2>工具下载</h2><span class="count">// tools · 在主站下载</span></div>
+            <div class="grid">
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">🛡️</div><span class="badge badge-primary">4.5 MB</span></div>
+                    <h3 class="card-title">JiYuTrainer</h3>
+                    <div class="fname">JiYuTrainer.exe</div>
+                    <p class="desc">极域电子教室修改器，信息课必备工具。</p>
+                    <a class="btn btn-primary btn-sm" href="https://dev.scirco.cn/JiYuTrainer.exe" target="_blank" rel="noopener">主站下载</a>
+                </div>
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">📦</div><span class="badge badge-primary">14.4 MB</span></div>
+                    <h3 class="card-title">极域反控</h3>
+                    <div class="fname">极域反控.zip</div>
+                    <p class="desc">极域反控工具包，解压后按说明使用。</p>
+                    <a class="btn btn-primary btn-sm" href="https://dev.scirco.cn/%E6%9E%81%E5%9F%9F%E5%8F%8D%E6%8E%A7.zip" target="_blank" rel="noopener">主站下载</a>
+                </div>
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">🧰</div><span class="badge badge-primary">1.0 MB</span></div>
+                    <h3 class="card-title">信息课助手</h3>
+                    <div class="fname">信息课助手.exe</div>
+                    <p class="desc">信息课多功能助手，小巧实用。</p>
+                    <a class="btn btn-primary btn-sm" href="https://dev.scirco.cn/%E4%BF%A1%E6%81%AF%E8%AF%BE%E5%8A%A9%E6%89%8B.exe" target="_blank" rel="noopener">主站下载</a>
+                </div>
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">⚡</div><span class="badge badge-primary">2.1 MB</span></div>
+                    <h3 class="card-title">veyonkill</h3>
+                    <div class="fname">veyonkill.exe</div>
+                    <p class="desc">快速结束 Veyon 相关进程。</p>
+                    <a class="btn btn-primary btn-sm" href="https://dev.scirco.cn/veyonkill.exe" target="_blank" rel="noopener">主站下载</a>
+                </div>
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">💻</div><span class="badge badge-primary">4.5 MB</span></div>
+                    <h3 class="card-title">dev.exe</h3>
+                    <div class="fname">dev.exe</div>
+                    <p class="desc">开发测试用程序。</p>
+                    <a class="btn btn-primary btn-sm" href="https://dev.scirco.cn/dev.exe" target="_blank" rel="noopener">主站下载</a>
+                </div>
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon icon-gold">🔒</div><span class="badge badge-success">本页生成</span></div>
+                    <h3 class="card-title">网站锁 outter</h3>
+                    <div class="fname">网站锁outter.bat</div>
+                    <p class="desc">批处理脚本。点击下方按钮，浏览器会在本页直接现生成并下载该 .bat 文件（无需前往主站、不受 Pages 静态限制）。</p>
+                    <button class="btn btn-primary btn-sm" type="button" onclick="downloadBat()">本页直接下载 ↓</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="pages">
+            <div class="section-head"><h2>网站伪装页面</h2><span class="count">// disguise pages</span></div>
+            <div class="grid">
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">🚫</div><span class="badge badge-danger">HTML</span></div>
+                    <h3 class="card-title">网站伪装已阻止</h3>
+                    <div class="fname">error.html</div>
+                    <p class="desc">进入后点击刷新即可继续下载。</p>
+                    <a class="btn btn-secondary btn-sm" href="https://dev.scirco.cn/error.html" target="_blank" rel="noopener">打开</a>
+                </div>
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">🌐</div><span class="badge badge-danger">HTML</span></div>
+                    <h3 class="card-title">DNS error</h3>
+                    <div class="fname">DNS error.html</div>
+                    <p class="desc">DNS 错误伪装页面。</p>
+                    <a class="btn btn-secondary btn-sm" href="https://dev.scirco.cn/DNS%20error.html" target="_blank" rel="noopener">打开</a>
+                </div>
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">📶</div><span class="badge badge-danger">HTML</span></div>
+                    <h3 class="card-title">202 error</h3>
+                    <div class="fname">202.html</div>
+                    <p class="desc">202 错误伪装页面。</p>
+                    <a class="btn btn-secondary btn-sm" href="https://dev.scirco.cn/202.html" target="_blank" rel="noopener">打开</a>
+                </div>
+                <div class="card file-card">
+                    <div class="card-header"><div class="card-icon">❗</div><span class="badge badge-danger">HTML</span></div>
+                    <h3 class="card-title">404 Not Found</h3>
+                    <div class="fname">404.html</div>
+                    <p class="desc">404 错误页。</p>
+                    <a class="btn btn-secondary btn-sm" href="https://dev.scirco.cn/404.html" target="_blank" rel="noopener">打开</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="links">
+            <div class="section-head"><h2>实用链接</h2><span class="count">// links</span></div>
+            <div class="grid">
+                <a class="card file-card" href="https://dev.scirco.cn/rungame/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="card-header"><div class="card-icon">🎮</div><span class="badge badge-success">在线</span></div>
+                    <h3 class="card-title">跑酷小游戏</h3>
+                    <div class="fname">rungame/</div>
+                    <p class="desc">本站自带的跑酷小游戏，含排行榜。</p>
+                    <span class="btn btn-primary btn-sm">开始游戏</span>
+                </a>
+                <a class="card file-card" href="https://aternos.org" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="card-header"><div class="card-icon">⛏️</div><span class="badge badge-warning">外链</span></div>
+                    <h3 class="card-title">aternos Server</h3>
+                    <div class="fname">aternos.org</div>
+                    <p class="desc">免费 Minecraft 服务器托管。</p>
+                    <span class="btn btn-secondary btn-sm">前往</span>
+                </a>
+                <a class="card file-card" href="https://www.chmlfrp.net/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+                    <div class="card-header"><div class="card-icon">🔌</div><span class="badge badge-warning">外链</span></div>
+                    <h3 class="card-title">ChmlFrp</h3>
+                    <div class="fname">chmlfrp.net</div>
+                    <p class="desc">端口映射服务。</p>
+                    <span class="btn btn-secondary btn-sm">前往</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 SCIRCO · <span class="mono">yuanhexuan.github.io/dev-scirco-cn-pages</span> · 主站 <span class="mono">dev.scirco.cn</span>
+    </footer>
+
+    <script>
+        // 现做文件：在浏览器端生成「网站锁outter.bat」并触发下载。
+        // 原因：GitHub Pages 只托管静态文件、不能放 exe/zip 等二进制；
+        // 而 .bat 本质是文本，故采用本地生成（Blob）方式，在 Pages 上也能直接下载。
+        function downloadBat() {
+            var content = 'taskkill /im MasterHelper.exe /f\r\nsc stop tdnetfilter\r\n';
+            var blob = new Blob([content], { type: 'application/octet-stream' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = '网站锁outter.bat';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
